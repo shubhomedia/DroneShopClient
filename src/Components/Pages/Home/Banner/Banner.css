@@ -1,0 +1,10 @@
+.banner {
+    background-color: black;
+    width: auto;
+    height: 700px;
+    background-image: url("../../../../Assets/Images/Banner_Image.jpg");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+    /* Center the image */
+}
