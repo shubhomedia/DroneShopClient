@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -47,7 +48,6 @@ const Navigation = () => {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -58,7 +58,7 @@ const Navigation = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 700, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace', }} to="/">Logo</Link>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -90,11 +90,11 @@ const Navigation = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center">
+                                </Typography>
+                            </MenuItem>
+
                         </Menu>
                     </Box>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -117,15 +117,48 @@ const Navigation = () => {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
-                        ))}
+
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 400, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'Roboto', }} to="/">Home</Link>
+                            </Typography>
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 400, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'Roboto', }} to="/about">ABOUT</Link>
+                            </Typography>
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 400, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'Roboto', }} to="/products">Products</Link>
+                            </Typography>
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 400, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'Roboto', }} to="/login">Login</Link>
+                            </Typography>
+                        </Button>
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                        >
+                            <Typography>
+                                <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 400, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'Roboto', }} to="/register">Register</Link>
+                            </Typography>
+                        </Button>
+
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
