@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import SingleProduct from '../../Products/SingleProduct/SingleProduct';
 
@@ -13,19 +13,23 @@ const ProductsShow = (props) => {
 
     return (
         <div>
-            <Grid container >
-                {
-                    product.slice(0, 6).map(product =>
-                        <Grid key={product.id} item sm={4}>
-                            <SingleProduct
-                                key={product.id}
-                                product={product}>
-                            </SingleProduct>
-                        </Grid>
+            <Container sx={{ py: 8 }} maxWidth='lg'>
 
-                    )
-                }
-            </Grid >
+                <Grid container spacing={4} >
+                    {
+                        product.slice(0, 6).map(product =>
+                            <Grid key={product.id} item sm={4}>
+                                <SingleProduct
+                                    key={product.id}
+                                    product={product}>
+                                </SingleProduct>
+                            </Grid>
+
+                        )
+                    }
+                </Grid >
+
+            </Container>
         </div>
     )
 };
