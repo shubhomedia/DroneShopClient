@@ -8,6 +8,7 @@ import Register from './Components/Pages/Login/Register/Register';
 import About from './Components/Pages/About/About';
 import Products from './Components/Pages/Products/Products/Products';
 import Footer from './Components/Shared/Footer/Footer';
+import SingleProductDetails from './Components/Pages/Products/SingleProductDetails/SingleProductDetails';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path='/about' element={<About />}>
           </Route>
           <Route path='/products' element={<Products />}>
+          </Route>
+          <Route path='/products/:productId' element={<SingleProductDetails />}>
           </Route>
           <Route path='/login' element={<Login />}>
           </Route>
