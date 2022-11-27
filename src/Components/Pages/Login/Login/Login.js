@@ -7,13 +7,26 @@ import Link from '@mui/material/Link';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Navigation from '../../../Shared/Navigation/Navigation';
-
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+// import useAuth from '../../../Hooks/useAuth';
+import auth from '../../../Firebase/firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+    const [signInWithGoogle, user] = useSignInWithGoogle(auth)
+    // const { signInUsingGoogle } = useAuth();
     const theme = createTheme();
-    const singin = () => {
-    };
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from.pathname || '/';
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -71,6 +84,7 @@ const Login = () => {
                         sx={{ mt: 3, mb: 2 }}
                     >Sign In</Button>
                     <Button
+                        onClick={() => signInWithGoogle()}
                         type="submit"
                         fullWidth
                         variant="contained"
