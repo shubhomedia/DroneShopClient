@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import { red } from '@mui/material/colors';
 import React from 'react';
 import './Footer.css';
 
