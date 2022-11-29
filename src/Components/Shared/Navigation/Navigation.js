@@ -15,11 +15,16 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init';
+// import useAuth from '../../Hooks/useAuth';
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+
 const Navigation = () => {
+
+    const [user] = useAuthState(auth);
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -102,7 +107,6 @@ const Navigation = () => {
                         variant="h5"
                         noWrap
                         component="a"
-                        href=""
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -158,6 +162,14 @@ const Navigation = () => {
                                 <Link style={{ textDecoration: 'none', color: 'inherit', fontWeight: 400, mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'Roboto', }} to="/register">Register</Link>
                             </Typography>
                         </Button>
+                        {
+                            user && <Button>
+                                Sign Out
+                            </Button>
+                        }
+                        <Button
+                            sx={{ my: 2, color: 'white', display: 'block' }}>
+                        </Button>
 
                     </Box>
 
@@ -192,7 +204,7 @@ const Navigation = () => {
                     </Box>
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 };
 
